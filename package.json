@@ -43,6 +43,7 @@
   },
   "scripts": {
     "start": "nodemon index.js",
+    "redeploy": "kubectl -n addict rollout restart deploy addict-deployment",
     "precommit": "lint-staged",
     "dockerbuild": "DOCKER_BUILDKIT=1 docker build -t christianbingman/addict-acm:latest .",
     "dockerbuildmultiarch": "DOCKER_BUILDKIT=1 docker buildx build -t christianbingman/addict-acm:latest --platform linux/amd64,linux/arm64,linux/arm/v7 --push ."

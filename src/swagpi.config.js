@@ -83,6 +83,7 @@ module.exports = {
           description: 'Email address.',
           optional: false
         },
+        enabled: 'Enable user after creation',
         firstName: 'First name',
         lastName: 'Last name.',
         title: 'Job title.'
