@@ -17,6 +17,38 @@ const params = {
 };
 
 module.exports = {
+  Authentication: [
+    {
+      verb: 'POST',
+      route: '/api/authenticate',
+      title: 'Get Bearer Token',
+      description:
+        'Authenticate a user and get a token if the user has proper permissions',
+      queries: {
+        username: {
+          description: 'WebDev member username',
+          optional: false
+        },
+        password: {
+          description: 'WebDev member password',
+          optional: false
+        }
+      }
+    },
+    {
+      verb: 'POST',
+      route: '/api/passwordreset',
+      title: 'Password Reset Token',
+      description:
+        'Generate a 1d token that can only make requests to change the password for a specified user',
+      queries: {
+        username: {
+          description: 'Name of the user that needs to change their password',
+          optional: false
+        }
+      }
+    }
+  ],
   Users: [
     {
       verb: 'GET',
@@ -39,15 +71,21 @@ module.exports = {
           description: 'User name.',
           optional: false
         },
-        pass: {
+        password: {
           description: 'Password to log in.',
+          optional: false
+        },
+        location: {
+          description: 'Relative AD folder position.',
+          optional: false
+        },
+        email: {
+          description: 'Email address.',
           optional: false
         },
         firstName: 'First name',
         lastName: 'Last name.',
-        email: 'Email address.',
-        title: 'Job title.',
-        location: 'Relative AD folder position.'
+        title: 'Job title.'
       }
     },
     {
