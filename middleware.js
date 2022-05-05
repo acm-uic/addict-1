@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const wrapAsync = require('./src/util/wrapAsync');
-exports.authenticate = async (app, ad) => {
+exports.authenticate = (app, ad) => {
   app.post('/api/authenticate', async (req, res, next) => {
     user = req.body.username;
     pass = req.body.password;
@@ -46,7 +46,7 @@ exports.authenticate = async (app, ad) => {
   });
 };
 
-exports.checkAuth = async (req, res, next) => {
+exports.checkAuth = (req, res, next) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
 
